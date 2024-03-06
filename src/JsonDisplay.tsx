@@ -6,7 +6,8 @@ import useTypingAnimation from "./useTypingAnimation";
 const Container = styled.div`
 	font-family: "Courier New", monospace;
 	font-size: 15px;
-	color: #5cb86c;
+	font-weight: 600;
+	color: #03c03c;
 `;
 
 const Caret = styled.span`
@@ -23,14 +24,6 @@ const Caret = styled.span`
 			opacity: 0;
 		}
 	}
-`;
-
-const Key = styled.span`
-	font-weight: bold; /* Make key names bold */
-`;
-
-const Value = styled.span`
-	font-weight: bold; /* Optional: Make values bold as well */
 `;
 
 const ObjectContainer = styled.div`
@@ -51,18 +44,21 @@ const ObjectContainer = styled.div`
 // };
 
 const Link = styled.a`
-	text-decoration: underline; // Ensure the link is underlined
-	color: inherit; // Optional: Use the parent's text color
-	cursor: pointer; // Change cursor to pointer on hover
+	text-decoration: underline;
+	color: inherit;
+	cursor: pointer;
+	font-weight: 600;
 `;
+
 const StyledLink = styled(RouterLink)`
-	text-decoration: underline; // Ensure the link is underlined
-	color: inherit; // Optional: Use the parent's text color
-	cursor: pointer; // Change cursor to pointer on hover
+	text-decoration: underline;
+	color: inherit;
+	cursor: pointer;
+	font-weight: 600;
 `;
 
 const JsonDisplay = ({ data, onComplete }) => {
-	const { displayedText, isTyping } = useTypingAnimation(data, 20, onComplete);
+	const { displayedText, isTyping } = useTypingAnimation(data, 15, onComplete);
 
 	return (
 		<Container>
@@ -75,17 +71,36 @@ const JsonDisplay = ({ data, onComplete }) => {
 };
 
 const renderWithLinks = (text) => {
-	// Check if "John Doe" is present
 	if (text.includes("resume")) {
-		// Split the text around "John Doe" and wrap "John Doe" in a Link component
 		return (
 			<>
 				{"'resume': "}
 				<StyledLink to="/resume">myResume.pdf,</StyledLink>
 			</>
 		);
+	} else if (text.includes("github")) {
+		return (
+			<>
+				<Link href="https://github.com/wrfhowell">github,</Link>
+			</>
+		);
+	} else if (text.includes("climbing logbook")) {
+		return (
+			<>
+				{"climbing/bouldering (checkout my "}
+				<Link href="https://sendage.com/user/willh">climbing logbook</Link>
+				{"),"}
+			</>
+		);
+	} else if (text.includes("linkedin")) {
+		return (
+			<>
+				<Link href="https://www.linkedin.com/in/will-howell-286210166/">
+					linkedin,
+				</Link>
+			</>
+		);
 	} else {
-		// If "John Doe" is not present, render the text as is
 		return text;
 	}
 };

@@ -5,30 +5,30 @@ import JsonDisplay from "./JsonDisplay";
 const AppContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Horizontally centers the container */
-	height: 100vh; /* Adjust to 100vh to take full height */
-	width: 100vw; /* Adjust to 100vw to take full width */
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
 	position: relative;
 	margin: 0 auto;
-	padding: 20px; /* Add some padding around the container */
-	background-image: url("/src/assets/profilePic.png"); /* Add your image path here */
+	padding: 100px 0px;
+	background-image: url("/src/assets/profilePic.png");
 	background-position: 40px 40px;
 	background-repeat: no-repeat;
-	background-size: 100px 100px; /* Adjust this size to your preference */
-	@media (max-width: 768px) {
+	background-size: 100px 100px;
+	@media (max-width: 820px) {
 		background-image: none;
 	}
 `;
 
 const JsonDisplayWrapper = styled.div`
-	margin-bottom: 16px; /* Adds space between components */
+	margin-bottom: 16px;
 	text-align: left;
-	white-space: pre-wrap; /* Ensures text wraps and respects white space */
-	word-wrap: break-word; /* Allows long words to be broken and wrapped to the next line */
-	width: 80%; /* Limits the width to prevent extending beyond the page */
-	max-width: 600px; /* Further limits the width for larger screens */
-	display: flex; /* Enables flexbox layout */
-	justify-content: flex-start; /* Aligns children to the start (left) */
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	width: 80%;
+	max-width: 600px;
+	display: flex;
+	justify-content: flex-start;
 `;
 
 const IndentDiv = styled.div`
@@ -36,117 +36,60 @@ const IndentDiv = styled.div`
 `;
 
 function App() {
-	const [animate2, setAnimate2] = useState(false);
-	const [animate3, setAnimate3] = useState(false);
-	const [animate4, setAnimate4] = useState(false);
-	const [animate4point5, setAnimate4point5] = useState(false);
-	const [animate5, setAnimate5] = useState(false);
-	const [animate6, setAnimate6] = useState(false);
-	const [animate7, setAnimate7] = useState(false);
-	const [animate8, setAnimate8] = useState(false);
-	const [animate9, setAnimate9] = useState(false);
-	const [animate10, setAnimate10] = useState(false);
-	const [animate11, setAnimate11] = useState(false);
+	const [animationStep, setAnimationStep] = useState(1);
 
-	return (
-		<AppContainer>
-			<JsonDisplayWrapper>
-				<JsonDisplay
-					data={`{`}
-					onComplete={() => setAnimate2(true)} // Trigger second animation on complete
-				/>
+	// Array of JSON display data and their corresponding indents
+	const steps = [
+		{ data: `{`, indent: 0 },
+		{ data: `'name': Will Howell,`, indent: 1 },
+		{
+			data: `'description': Software and Data Engineer with experience building data pipelines and web APIs,`,
+			indent: 1,
+		},
+		{
+			data: `'currently at': Genesys,`,
+			indent: 1,
+		},
+		{
+			data: `'interned at': [ Rivian Automotive, UBC Launch Pad ],`,
+			indent: 1,
+		},
+		{
+			data: `'education': CS @ University of British Columbia,`,
+			indent: 1,
+		},
+		{ data: `'resume': myResume.pdf,`, indent: 1 },
+		{ data: `'contact': [`, indent: 1 },
+		{ data: `'location': Vancouver, Canada,`, indent: 2 },
+		{ data: `'email': wrfhowell@gmail.com,`, indent: 2 },
+		{ data: `']',`, indent: 1 },
+		{ data: `'profiles': [`, indent: 1 },
+		{ data: `linkedin,`, indent: 2 },
+		{ data: `github,`, indent: 2 },
+		{ data: `']',`, indent: 1 },
+		{ data: `'interests': [`, indent: 1 },
+		{ data: `graphQL,`, indent: 2 },
+		{ data: `climbing/bouldering (checkout my climbing logbook),`, indent: 2 },
+		{ data: `chess,`, indent: 2 },
+		{ data: `data engineering,`, indent: 2 },
+		{ data: `']',`, indent: 1 },
+		{ data: `}`, indent: 0 }, // You might need to adjust the last step based on how you want to close your JSON structure
+	];
+
+	// Function to render JSON Display based on the current step
+	const renderSteps = () =>
+		steps.slice(0, animationStep).map((step, index) => (
+			<JsonDisplayWrapper key={index}>
+				<IndentDiv style={{ paddingLeft: `${step.indent * 30}px` }}>
+					<JsonDisplay
+						data={step.data}
+						onComplete={() => setAnimationStep((prevStep) => prevStep + 1)}
+					/>
+				</IndentDiv>
 			</JsonDisplayWrapper>
-			{animate2 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<JsonDisplay
-							data={`'name': Will Howell,`}
-							onComplete={() => setAnimate3(true)}
-						/>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate3 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<JsonDisplay
-							data={`'job': Software and Data Engineer,`}
-							onComplete={() => setAnimate4(true)}
-						/>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate4 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<JsonDisplay
-							data={`'description': Software and Data Engineer with experience building data pipelines and web API's`}
-							onComplete={() => setAnimate4point5(true)}
-						/>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate4point5 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<JsonDisplay
-							data={`'worked at: Genesys, Rivian Automotive, UBC Launch Pad,`}
-							onComplete={() => setAnimate5(true)}
-						/>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate5 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<JsonDisplay
-							data={`'resume': myResume.pdf,`}
-							onComplete={() => setAnimate6(true)}
-						/>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate6 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<JsonDisplay
-							data={`'contact': [`}
-							onComplete={() => setAnimate7(true)}
-						/>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate7 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<IndentDiv>
-							<JsonDisplay
-								data={`        'location': Vancouver, Canada,`}
-								onComplete={() => setAnimate8(true)}
-							/>
-						</IndentDiv>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate8 && (
-				<JsonDisplayWrapper>
-					<IndentDiv>
-						<IndentDiv>
-							<JsonDisplay
-								data={`        'email': wrfhowell@gmail.com`}
-								onComplete={() => setAnimate9(true)}
-							/>
-						</IndentDiv>
-					</IndentDiv>
-				</JsonDisplayWrapper>
-			)}
-			{animate9 && (
-				<JsonDisplayWrapper>
-					<JsonDisplay data={`    '],`} />
-				</JsonDisplayWrapper>
-			)}
-		</AppContainer>
-	);
+		));
+
+	return <AppContainer>{renderSteps()}</AppContainer>;
 }
 
 export default App;
