@@ -6,7 +6,7 @@ function Resume() {
 			<iframe
 				src={`/personal-website/resume.pdf`}
 				title="Resume"
-				style={{ width: "100%", height: "100%" }} // Apply the styles here
+				style={{ width: "100%", height: "100%" }} 
 			></iframe>
 		</div>
 	);

@@ -38,7 +38,6 @@ const IndentDiv = styled.div`
 function App() {
 	const [animationStep, setAnimationStep] = useState(1);
 
-	// Array of JSON display data and their corresponding indents
 	const steps = [
 		{ data: `{`, indent: 0 },
 		{ data: `'name': Will Howell,`, indent: 1 },
@@ -73,10 +72,9 @@ function App() {
 		{ data: `chess,`, indent: 2 },
 		{ data: `graphQL,`, indent: 2 },
 		{ data: `']',`, indent: 1 },
-		{ data: `}`, indent: 0 }, // You might need to adjust the last step based on how you want to close your JSON structure
+		{ data: `}`, indent: 0 }, 
 	];
 
-	// Function to render JSON Display based on the current step
 	const renderSteps = () =>
 		steps.slice(0, animationStep).map((step, index) => (
 			<JsonDisplayWrapper key={index}>

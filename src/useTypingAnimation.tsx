@@ -1,4 +1,3 @@
-// useTypingAnimation.js
 import { useEffect, useState } from "react";
 
 const useTypingAnimation = (text = "", speed = 100, onComplete = () => {}) => {
@@ -13,7 +12,7 @@ const useTypingAnimation = (text = "", speed = 100, onComplete = () => {}) => {
 			return () => clearTimeout(timeoutId);
 		} else if (isTyping) {
 			setIsTyping(false);
-			onComplete(); // Call the onComplete callback when typing is finished
+			onComplete();
 		}
 	}, [text, displayedText, isTyping, speed, onComplete]);
 
