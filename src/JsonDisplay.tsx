@@ -11,12 +11,12 @@ const Container = styled.div`
 `;
 
 const Caret = styled.span`
-	display: inline-block; /* Allows us to set width and height */
-	width: 10px; /* Width of the square */
-	height: 20px; /* Height of the square, adjust as needed */
-	background-color: #5cb86c; /* Caret color, match or contrast with text */
-	vertical-align: middle; /* Aligns with the text nicely */
-	margin-left: 2px; /* Optional: Adjust space between the caret and the text */
+	display: inline-block;
+	width: 10px;
+	height: 20px;
+	background-color: #ffffff;
+	vertical-align: middle;
+	margin-left: 2px;
 	animation: blink 1s step-end infinite;
 
 	@keyframes blink {

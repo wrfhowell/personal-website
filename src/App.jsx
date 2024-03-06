@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import JsonDisplay from "./JsonDisplay";
 
-
 const AppContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -11,13 +10,13 @@ const AppContainer = styled.div`
 	width: 100vw;
 	position: relative;
 	margin: 0 auto;
-	padding: 100px 0px;
+	padding: 150px 0px;
 	background-image: url("/personal-website/profilePic.png");
 	background-position: 40px 40px;
 	background-repeat: no-repeat;
 	background-size: 100px 100px;
 	@media (max-width: 820px) {
-		background-image: none;
+		background-position: center 40px;
 	}
 `;
 
