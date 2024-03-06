@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import JsonDisplay from "./JsonDisplay";
 
+
 const AppContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -11,7 +12,7 @@ const AppContainer = styled.div`
 	position: relative;
 	margin: 0 auto;
 	padding: 100px 0px;
-	background-image: url("/src/assets/profilePic.png");
+	background-image: url("/profilePic.png");
 	background-position: 40px 40px;
 	background-repeat: no-repeat;
 	background-size: 100px 100px;
