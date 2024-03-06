@@ -75,7 +75,7 @@ const renderWithLinks = (text) => {
 		return (
 			<>
 				{"'resume': "}
-				<StyledLink to="/resume">myResume.pdf,</StyledLink>
+				<StyledLink to="/personal-website/resume">myResume.pdf,</StyledLink>
 			</>
 		);
 	} else if (text.includes("github")) {
@@ -100,6 +100,12 @@ const renderWithLinks = (text) => {
 					linkedin
 				</Link>
 				{`,`}
+			</>
+		);
+	} else if (text.includes("girlfriend")) {
+		return (
+			<>
+				<StyledLink to="/personal-website/girlfriend">my pretty girlfriend,</StyledLink>
 			</>
 		);
 	} else {
