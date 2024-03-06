@@ -12,7 +12,7 @@ const AppContainer = styled.div`
 	position: relative;
 	margin: 0 auto;
 	padding: 100px 0px;
-	background-image: url("/profilePic.png");
+	background-image: url("/personal-website/profilePic.png");
 	background-position: 40px 40px;
 	background-repeat: no-repeat;
 	background-size: 100px 100px;
@@ -69,10 +69,10 @@ function App() {
 		{ data: `github,`, indent: 2 },
 		{ data: `']',`, indent: 1 },
 		{ data: `'interests': [`, indent: 1 },
-		{ data: `graphQL,`, indent: 2 },
+		{ data: `data engineering,`, indent: 2 },
 		{ data: `climbing/bouldering (checkout my climbing logbook),`, indent: 2 },
 		{ data: `chess,`, indent: 2 },
-		{ data: `data engineering,`, indent: 2 },
+		{ data: `graphQL,`, indent: 2 },
 		{ data: `']',`, indent: 1 },
 		{ data: `}`, indent: 0 }, // You might need to adjust the last step based on how you want to close your JSON structure
 	];
