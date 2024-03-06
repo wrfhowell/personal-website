@@ -81,7 +81,8 @@ const renderWithLinks = (text) => {
 	} else if (text.includes("github")) {
 		return (
 			<>
-				<Link href="https://github.com/wrfhowell">github,</Link>
+				<Link href="https://github.com/wrfhowell">github</Link>
+				{`,`}
 			</>
 		);
 	} else if (text.includes("climbing logbook")) {
@@ -96,8 +97,9 @@ const renderWithLinks = (text) => {
 		return (
 			<>
 				<Link href="https://www.linkedin.com/in/will-howell-286210166/">
-					linkedin,
+					linkedin
 				</Link>
+				{`,`}
 			</>
 		);
 	} else {
