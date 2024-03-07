@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import JsonDisplay from "./JsonDisplay";
+import { base } from "./main";
 
+// Styled container without the background-image properties
 const AppContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -11,14 +14,42 @@ const AppContainer = styled.div`
 	position: relative;
 	margin: 0 auto;
 	padding: 150px 0px;
+`;
+
+// New styled component for the background image
+const ProfilePic = styled.div`
+	position: absolute;
+	left: 40px;
+	top: 40px;
+	width: 100px;
+	height: 100px;
 	background-image: url("/personal-website/profilePic.png");
-	background-position: 40px 40px;
+	background-size: cover;
 	background-repeat: no-repeat;
-	background-size: 100px 100px;
+	transition: transform 0.3s ease-in-out; // Smooth transition for the transform
+
+	&:hover {
+		transform: scale(1.1); // Slightly grow the pic on hover
+	}
+
 	@media (max-width: 820px) {
-		background-position: center 40px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
 	}
 `;
+
+// React component that uses ProfilePic and handles click events
+const ClickableProfilePic = () => {
+	const navigate = useNavigate(); // Hook to get the navigate function
+
+	const handleClick = () => {
+		navigate(base); // Navigate to the base route
+		// If your base path is not '/', you can adjust this to match your base path, e.g., navigate('/personal-website/')
+	};
+
+	return <ProfilePic onClick={handleClick} />;
+};
 
 const JsonDisplayWrapper = styled.div`
 	margin-bottom: 16px;
@@ -73,7 +104,7 @@ function App() {
 		{ data: `graphQL,`, indent: 2 },
 		{ data: `my pretty girlfriend,`, indent: 2 },
 		{ data: `']',`, indent: 1 },
-		{ data: `}`, indent: 0 }, 
+		{ data: `}`, indent: 0 },
 	];
 
 	const renderSteps = () =>
@@ -88,7 +119,12 @@ function App() {
 			</JsonDisplayWrapper>
 		));
 
-	return <AppContainer>{renderSteps()}</AppContainer>;
+	return (
+		<AppContainer>
+			{ClickableProfilePic()}
+			{renderSteps()}
+		</AppContainer>
+	);
 }
 
 export default App;
