@@ -67,6 +67,10 @@ const IndentDiv = styled.div`
 `;
 
 function App() {
+	window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+	};
+
 	const [animationStep, setAnimationStep] = useState(1);
 
 	const steps = [
