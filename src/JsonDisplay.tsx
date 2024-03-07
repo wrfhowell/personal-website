@@ -105,7 +105,9 @@ const renderWithLinks = (text) => {
 	} else if (text.includes("girlfriend")) {
 		return (
 			<>
-				<StyledLink to="/personal-website/girlfriend">my pretty girlfriend,</StyledLink>
+				{"my beautiful "}
+				<StyledLink to="/personal-website/girlfriend">girlfriend</StyledLink>
+				{","}
 			</>
 		);
 	} else {
