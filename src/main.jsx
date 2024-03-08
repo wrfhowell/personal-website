@@ -7,7 +7,7 @@ import Resume from "./Resume";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-export const base = "/personal-website/";
+export const base = "/";
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
