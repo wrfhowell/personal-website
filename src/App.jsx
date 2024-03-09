@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import JsonDisplay from "./JsonDisplay";
+import JsonDisplay from "./components/JsonDisplay";
+import { steps } from "./components/info";
 import { base } from "./main";
 
 // Styled container without the background-image properties
@@ -39,12 +40,11 @@ const ProfilePic = styled.div`
 	}
 `;
 
-// React component that uses ProfilePic and handles click events
 const ClickableProfilePic = () => {
-	const navigate = useNavigate(); // Hook to get the navigate function
+	const navigate = useNavigate();
 
 	const handleClick = () => {
-		navigate(base); // Navigate to the base route
+		navigate(base);
 	};
 
 	return <ProfilePic onClick={handleClick} />;
@@ -71,44 +71,6 @@ function App() {
 	};
 
 	const [animationStep, setAnimationStep] = useState(1);
-
-	const steps = [
-		{ data: `{`, indent: 0 },
-		{ data: `'name': Will Howell,`, indent: 1 },
-		{
-			data: `'description': Software and Data Engineer with experience building data pipelines and web APIs,`,
-			indent: 1,
-		},
-		{
-			data: `'currently at': Genesys,`,
-			indent: 1,
-		},
-		{
-			data: `'previously at': [ Rivian Automotive, UBC Launch Pad ],`,
-			indent: 1,
-		},
-		{
-			data: `'education': CS @ University of British Columbia,`,
-			indent: 1,
-		},
-		{ data: `'resume': myResume.pdf,`, indent: 1 },
-		{ data: `'contact': [`, indent: 1 },
-		{ data: `'location': Vancouver, Canada,`, indent: 2 },
-		{ data: `'email': wrfhowell@gmail.com,`, indent: 2 },
-		{ data: `']',`, indent: 1 },
-		{ data: `'profiles': [`, indent: 1 },
-		{ data: `linkedin,`, indent: 2 },
-		{ data: `github,`, indent: 2 },
-		{ data: `']',`, indent: 1 },
-		{ data: `'interests': [`, indent: 1 },
-		{ data: `data engineering,`, indent: 2 },
-		{ data: `climbing/bouldering (checkout my climbing logbook),`, indent: 2 },
-		{ data: `chess,`, indent: 2 },
-		{ data: `graphQL,`, indent: 2 },
-		{ data: `my pretty girlfriend,`, indent: 2 },
-		{ data: `']',`, indent: 1 },
-		{ data: `}`, indent: 0 },
-	];
 
 	const renderSteps = () =>
 		steps.slice(0, animationStep).map((step, index) => (

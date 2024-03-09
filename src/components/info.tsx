@@ -1,0 +1,37 @@
+export const steps = [
+	{ data: `{`, indent: 0 },
+	{ data: `'name': Will Howell,`, indent: 1 },
+	{
+		data: `'description': Software and Data Engineer with experience building data pipelines and web APIs,`,
+		indent: 1,
+	},
+	{
+		data: `'currently at': Genesys,`,
+		indent: 1,
+	},
+	{
+		data: `'previously at': [ Rivian Automotive, UBC Launch Pad ],`,
+		indent: 1,
+	},
+	{
+		data: `'education': CS @ University of British Columbia,`,
+		indent: 1,
+	},
+	{ data: `'resume': myResume.pdf,`, indent: 1 },
+	{ data: `'contact': [`, indent: 1 },
+	{ data: `'location': Vancouver, Canada,`, indent: 2 },
+	{ data: `'email': wrfhowell@gmail.com,`, indent: 2 },
+	{ data: `']',`, indent: 1 },
+	{ data: `'profiles': [`, indent: 1 },
+	{ data: `linkedin,`, indent: 2 },
+	{ data: `github,`, indent: 2 },
+	{ data: `']',`, indent: 1 },
+	{ data: `'interests': [`, indent: 1 },
+	{ data: `data engineering,`, indent: 2 },
+	{ data: `climbing/bouldering (checkout my climbing logbook),`, indent: 2 },
+	{ data: `chess,`, indent: 2 },
+	{ data: `graphQL,`, indent: 2 },
+	{ data: `my pretty girlfriend,`, indent: 2 },
+	{ data: `']',`, indent: 1 },
+	{ data: `}`, indent: 0 },
+];
