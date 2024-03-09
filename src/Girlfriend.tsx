@@ -11,7 +11,7 @@ function Girlfriend() {
 			}}
 		>
 			<img
-				src="/personal-website/girlfriend.png"
+				src="/girlfriend.png"
 				alt="Girlfriend"
 				style={{ maxWidth: "20%", height: "auto" }}
 			/>

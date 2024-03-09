@@ -23,7 +23,7 @@ const ProfilePic = styled.div`
 	top: 40px;
 	width: 100px;
 	height: 100px;
-	background-image: url("/personal-website/profilePic.png");
+	background-image: url("/profilePic.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	transition: transform 0.3s ease-in-out; // Smooth transition for the transform
@@ -45,7 +45,6 @@ const ClickableProfilePic = () => {
 
 	const handleClick = () => {
 		navigate(base); // Navigate to the base route
-		// If your base path is not '/', you can adjust this to match your base path, e.g., navigate('/personal-website/')
 	};
 
 	return <ProfilePic onClick={handleClick} />;

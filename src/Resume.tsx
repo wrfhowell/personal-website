@@ -4,7 +4,7 @@ function Resume() {
 	return (
 		<div style={{ height: "100vh", width: "100vw" }}>
 			<iframe
-				src={`/personal-website/resume.pdf`}
+				src={`/resume.pdf`}
 				title="Resume"
 				style={{ width: "100%", height: "100%" }} 
 			></iframe>
