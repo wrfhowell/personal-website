@@ -31,7 +31,6 @@ export const steps = [
 	{ data: `climbing/bouldering (checkout my climbing logbook),`, indent: 2 },
 	{ data: `chess,`, indent: 2 },
 	{ data: `graphQL,`, indent: 2 },
-	{ data: `my pretty girlfriend,`, indent: 2 },
 	{ data: `']',`, indent: 1 },
 	{ data: `}`, indent: 0 },
 ];
