@@ -6,11 +6,11 @@ export const steps = [
 		indent: 1,
 	},
 	{
-		data: `'currently at': Genesys,`,
+		data: `'currently at': Athelas,`,
 		indent: 1,
 	},
 	{
-		data: `'previously at': [ Rivian Automotive, UBC Launch Pad ],`,
+		data: `'previously at': [ Genesys, Rivian Automotive, UBC Launch Pad ],`,
 		indent: 1,
 	},
 	{
