@@ -89,7 +89,7 @@ const renderWithLinks = (text) => {
 		return (
 			<>
 				{"climbing/bouldering (checkout my "}
-				<Link href="https://sendage.com/user/willh">climbing logbook</Link>
+				<Link href="https://kaya-app.kayaclimb.com/user/will.howell">climbing logbook</Link>
 				{"),"}
 			</>
 		);
